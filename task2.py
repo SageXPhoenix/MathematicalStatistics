@@ -142,4 +142,4 @@ print("Оценка коэффицента асимметрии:", asimm_coeff)
 print("Оценка вероятности бутстраповского коэффицента асимметрии:", estimation_coeff_asimm_prob)
 
 fig.tight_layout()
-plt.show()
+plt.savefig("task2Plots.png")
