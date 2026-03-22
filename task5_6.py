@@ -21,7 +21,7 @@ def find_accurate_mean_trusted_interval_pareto():
 
 def find_asymptotic_trusted_interval_pareto():
     num_of_obs = 100
-    new_sample = generate_pareto_sample(4, num_of_obs)
+    new_sample = generate_pareto_sample(50, num_of_obs)
     log_summ = np.sum(np.log(new_sample))
     quantiles = stats.norm.ppf([0.025, 0.975])
     trusted_interval_boundaries = np.zeros((2,))
@@ -33,7 +33,7 @@ def find_parametric_bootstrap_trusted_interval_pareto():
     beta = 0.95
     num_of_obs = 100
     num_of_bootstrap = 50000
-    new_sample = generate_pareto_sample(4, num_of_obs)
+    new_sample = generate_pareto_sample(50, num_of_obs)
 
     #Взял OMP оценку т.к она более эффективная
     estimation_OMP = 1 + num_of_obs/np.sum(np.log(new_sample))
@@ -54,7 +54,7 @@ def find_nonparametric_bootstrap_trusted_interval_pareto():
     num_of_obs = 100
     beta = 0.95
 
-    new_sample = generate_pareto_sample(4, num_of_obs)
+    new_sample = generate_pareto_sample(50, num_of_obs)
     new_sample = new_sample.reshape(num_of_obs, )
 
     estimation_OMP = 1 + num_of_obs/np.sum(np.log(new_sample))
